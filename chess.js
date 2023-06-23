@@ -3,14 +3,7 @@ console.log('hello');
 function node(x,y){
     this.x = x;
     this.y = y;
-    this.one = null;
-    this.two = null;
-    this.three = null;
-    this.four = null;
-    this.five = null;
-    this.six = null;
-    this.seven = null;
-    this.eight = null;
+    this.array = null;
 }
 
 class octoTree {
@@ -19,8 +12,10 @@ class octoTree {
     }
 
     add(x,y){
+        var array1 = [];
         if (this.head == null){
-            this.head = node(x,y);
+            array1.push(node(x,y));
+            this.head = array1;
         }
         else if (traversal(this.head, node(x,y))){ //need to find if any ancestors have same data, if return true then we dont add this data
             return;
@@ -40,13 +35,6 @@ function preOrder(head, newNode){
     }
     else {
         preOrder(head.one, newNode);
-        preOrder(head.two, newNode);
-        preOrder(head.three, newNode);
-        preOrder(head.four, newNode);
-        preOrder(head.five, newNode);
-        preOrder(head.six, newNode);
-        preOrder(head.seven, newNode);
-        preOrder(head.eight, newNode);
     }
     return false;
 }
